@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRate.Core", "CurrencyRate.Core\CurrencyRate.Core.csproj", "{239790D9-12B2-4FF5-BFFF-2F5E5A16347C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRate.Entities", "CurrencyRate.Entities\CurrencyRate.Entities.csproj", "{8294F37E-4387-4DEF-AEF2-36F967E74C60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRate.Service", "CurrencyRate.Service\CurrencyRate.Service.csproj", "{B436225E-E7F1-4E20-9BE8-7C2364111BD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRate.WinApp", "CurrencyRate.WinApp\CurrencyRate.WinApp.csproj", "{CDB8506F-9931-43EC-B82A-B244BB5C0CF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TSQL", "TSQL", "{BAA5F53F-EDF5-434C-B276-0C11CF5F7E1E}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Desktop\TSQLKodlari.sql = ..\..\..\Desktop\TSQLKodlari.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{239790D9-12B2-4FF5-BFFF-2F5E5A16347C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{239790D9-12B2-4FF5-BFFF-2F5E5A16347C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{239790D9-12B2-4FF5-BFFF-2F5E5A16347C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{239790D9-12B2-4FF5-BFFF-2F5E5A16347C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8294F37E-4387-4DEF-AEF2-36F967E74C60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8294F37E-4387-4DEF-AEF2-36F967E74C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8294F37E-4387-4DEF-AEF2-36F967E74C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8294F37E-4387-4DEF-AEF2-36F967E74C60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B436225E-E7F1-4E20-9BE8-7C2364111BD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B436225E-E7F1-4E20-9BE8-7C2364111BD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B436225E-E7F1-4E20-9BE8-7C2364111BD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B436225E-E7F1-4E20-9BE8-7C2364111BD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDB8506F-9931-43EC-B82A-B244BB5C0CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDB8506F-9931-43EC-B82A-B244BB5C0CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDB8506F-9931-43EC-B82A-B244BB5C0CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDB8506F-9931-43EC-B82A-B244BB5C0CF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7864294-1695-41CE-A230-3D3D42D0370A}
+	EndGlobalSection
+EndGlobal
