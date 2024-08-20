@@ -16,7 +16,7 @@ namespace CurrencyRate.Core
 
 		public DatabaseLogicLayer()
 		{
-			con = new SqlConnection("data source=BESEM-113\\SQLEXPRESS; initial catalog = CurrencyRateTracker; user Id = sa; password = 12345");
+			con = new SqlConnection("data source=.; initial catalog = CurrencyRateTracker; user Id = username; password = 1");
 
 		}
 
