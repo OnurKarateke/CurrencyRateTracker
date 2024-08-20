@@ -9,11 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using CurrencyRate.Entities;
 using System.Xml;
+using System.Reflection;
 
 namespace CurrencyRate.Core 
 {
     public class BusinessLogicLayer : BaseClass
 	{
+		delegate void UpdateExchangeRates();
+
 		DatabaseLogicLayer DLL;
 		public BusinessLogicLayer()
 		{
@@ -21,6 +24,7 @@ namespace CurrencyRate.Core
 			DLL = new DatabaseLogicLayer();
 
 		}
+
 
 		public List<ParaBirimi> ParaBirimiListesi()
 		{
@@ -43,7 +47,21 @@ namespace CurrencyRate.Core
 			return ParaBirimleri;
 		}
 
+		
+
 		public void KurBilgileriniGuncelle()
+		{
+
+			UpdateExchangeRates UP1 = new UpdateExchangeRates(USDInfo);
+
+			UP1.Invoke();
+			UP1 += EUROInfo;
+			UP1 += GBPInfo;
+
+
+		}
+
+		public void USDInfo()
 		{
 			List<ParaBirimi> ParaBirimiListe = ParaBirimiListesi();
 			XmlDocument xmlDoc = new XmlDocument();
@@ -52,29 +70,38 @@ namespace CurrencyRate.Core
 			string USD = xmlDoc.SelectSingleNode("//Tarih_Date/Currency [@CurrencyCode='USD']/CurrencyName").InnerXml;
 			string USDBuying = xmlDoc.SelectSingleNode("//Tarih_Date/Currency [@CurrencyCode='USD']/BanknoteBuying").InnerXml;
 			string USDSelling = xmlDoc.SelectSingleNode("//Tarih_Date/Currency [@CurrencyCode='USD']/BanknoteSelling").InnerXml;
-		    
+
 			KurKayitEKLE(Guid.NewGuid(), ParaBirimiListe[0].ID, decimal.Parse(USDBuying), decimal.Parse(USDSelling), DateTime.Now);
+
+		}
+
+		public void EUROInfo()
+		{
+			List<ParaBirimi> ParaBirimiListe = ParaBirimiListesi();
+			XmlDocument xmlDoc = new XmlDocument();
+			xmlDoc.Load("https://www.tcmb.gov.tr/kurlar/today.xml");
 
 			string EUR = xmlDoc.SelectSingleNode("//Tarih_Date/Currency [@CurrencyCode='EUR']/CurrencyName").InnerXml;
 			string EURDBuying = xmlDoc.SelectSingleNode("//Tarih_Date/Currency [@CurrencyCode='EUR']/BanknoteBuying").InnerXml;
 			string EURSelling = xmlDoc.SelectSingleNode("//Tarih_Date/Currency [@CurrencyCode='EUR']/BanknoteSelling").InnerXml;
 
 			KurKayitEKLE(Guid.NewGuid(), ParaBirimiListe[1].ID, decimal.Parse(EURDBuying), decimal.Parse(EURSelling), DateTime.Now);
+		}
+
+		public void GBPInfo()
+		{
+			List<ParaBirimi> ParaBirimiListe = ParaBirimiListesi();
+			XmlDocument xmlDoc = new XmlDocument();
+			xmlDoc.Load("https://www.tcmb.gov.tr/kurlar/today.xml");
+
 
 			string GBP = xmlDoc.SelectSingleNode("//Tarih_Date/Currency [@CurrencyCode='GBP']/CurrencyName").InnerXml;
 			string GBPBuying = xmlDoc.SelectSingleNode("//Tarih_Date/Currency [@CurrencyCode='GBP']/BanknoteBuying").InnerXml;
 			string GBPSelling = xmlDoc.SelectSingleNode("//Tarih_Date/Currency [@CurrencyCode='GBP']/BanknoteSelling").InnerXml;
 
 			KurKayitEKLE(Guid.NewGuid(), ParaBirimiListe[2].ID, decimal.Parse(GBPBuying), decimal.Parse(GBPSelling), DateTime.Now);
-
-
-
-
-
-
-
-
 		}
+
 
 		public DataTable KurGecmisGoruntule()
 		{
